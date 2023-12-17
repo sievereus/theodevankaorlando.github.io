@@ -1,0 +1,141 @@
+<!-- Kontak.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Blank Pink</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: 1px solid #f4a7bb;
+        }
+
+        .card-header {
+            background-color: #f4a7bb;
+            color: #000000;
+        }
+
+        .navbar-dark .navbar-nav .nav-link {
+            color: #000000 !important;
+        }
+
+        .navbar-brand {
+            color: #000000 !important;
+        }
+
+        #sukses, #error, #info {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #syarat {
+            margin-top: 20px;
+        }
+
+        label[for="nama"], label[for="email"] {
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f4a7bb;">
+    <a class="navbar-brand" href="#"><h3>BLANK PINK :)</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">BERANDA</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.html">PEMBAYARAN</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="kontak.html">KONTAK <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<img src="img/BP.jpg" alt="bp" class="bp" width="1250px" height="350px">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Hubungi Kami</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div id="error" class="alert alert-danger mt-3" role="alert">
+                            Harap Isi Bidang Kosong!
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Nama</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea class="form-control" id="pesan" name="pesan" rows="4" required></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success" onclick="sendMessage()">Kirim Pesan</button>
+                    </form>
+                    <div id="sukses" class="alert alert-success mt-3" role="alert">
+                        Pesan Anda telah terkirim. Terima kasih!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    function sendMessage() {
+        var nama = document.getElementById('nama').value;
+        var email = document.getElementById('email').value;
+        var pesan = document.getElementById('pesan').value;
+
+        if (nama.trim() === '' || email.trim() === '' || pesan.trim() ==='') {
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('sukses').style.display = 'none';
+            document.getElementById('info').style.display = 'none';
+        }else {
+
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('sukses').style.display = 'block';
+            document.getElementById('info').style.display = 'block';
+            document.getElementById('registrationForm').reset();
+            document.getElementById('nama').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('pesan').value = '';
+            document.getElementById('sukses').style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>

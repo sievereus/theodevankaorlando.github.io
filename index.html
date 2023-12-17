@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Tiket Konser</title>
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #000000;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: 1px solid #f4a7bb;
+        }
+
+        .card-header {
+            background-color: #f4a7bb;
+            color: #000000;
+        }
+
+        .navbar-dark .navbar-nav .nav-link{
+            color: #000000 !important;
+        }
+
+        .navbar-brand{
+            color: #000000 !important;
+
+        }
+
+        #sukses, #error, #info {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #syarat {
+            margin-top: 20px;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #f4a7bb;">
+    <a class="navbar-brand" href="#"><h3>BLANK PINK :)</h3></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">BERANDA <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pembayaran.html">PEMBAYARAN</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kontak.html">KONTAK</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<img src="img/BP.jpg" alt="bp" class="bp" width="1250px" height="350px">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">Pendaftaran Tiket Konser Black Pink</h4>
+                </div>
+                <div class="card-body">
+                    <form id="registrationForm">
+                        <div id="error" class="alert alert-danger mt-3" role="alert">
+                            Harap Isi Bidang Kosong!
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nomor">Nomor Telepon</label>
+                            <input type="tel" class="form-control" id="nomor" name="nomorr" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="negara">Negara</label>
+                            <select class="form-control" id="negara" name="negara" required>
+                                <option value="" selected disabled>Pilih Negara</option>
+                                <option value="id">Indonesia</option>
+                                <option value="us">United States</option>
+                                <option value="la">Lainnya</option>
+                              
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempat">Jenis Tempat Duduk</label>
+                            <select class="form-control" id="tempat" name="tempat" required>
+                                <option value="" selected disabled>Pilih Tempat Duduk</option>
+                                <option value="vvip">VVIP - Harga: Rp.3.500.000</option>
+                                <option value="vip">VIP - Harga: Rp.2.500.000</option>
+                                <option value="regular">Regular - Harga: Rp.1.500.000</option>
+                               
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tiket">Jumlah Tiket</label>
+                            <input type="number" class="form-control" id="tiket" name="tiket" min="1" required>
+                        </div>
+                        <div align="center">
+                        <button type="button" class="btn btn-success" onclick="validateForm()">Daftar</button>
+                        </div>
+                    </form>
+                    <div id="info" class="mt-3">
+                        <p><strong>Please be informed:</strong> The number of tickets available under this price category is limited, and sales are made on a first-come, first-served basis.</p>
+                    </div>
+                    <div id="syarat" class="mt-3">
+                        <h5>Syarat dan Ketentuan Berlaku</h5>
+                        <p>1. Harga tiket dapat berubah tanpa pemberitahuan sebelumnya.</p>
+                        <p>2. Tiket yang sudah dibeli tidak dapat dikembalikan.</p>
+                        <p>3. Penonton diharapkan hadir 30 menit sebelum acara dimulai.</p>
+                        <p>4. Penonton wajib membawa tiket cetak atau tampilan digital saat masuk ke dalam venue.</p>
+                    </div>
+                    <div id="sukses" class="alert alert-success mt-3" role="alert">
+                        Pendaftaran berhasil! Silahkan Melakukan Pembayaran Untuk Melajutkan!!!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    function validateForm() {
+        var nama = document.getElementById('nama').value;
+        var email = document.getElementById('email').value;
+        var nomor = document.getElementById('nomor').value;
+        var negara = document.getElementById('negara').value;
+        var tempat = document.getElementById('tempat').value;
+        var tiket = document.getElementById('tiket').value;
+
+        if (nama.trim() === '' || email.trim() === '' || nomor.trim() === '' || negara === '' || tempat === '' || tiket < 1) {
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('sukses').style.display = 'none';
+            document.getElementById('info').style.display = 'none';
+        } else {
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('sukses').style.display = 'block';
+            document.getElementById('info').style.display = 'block';
+            document.getElementById('registrationForm').reset();
+        }
+    }
+</script>
+
+</body>
+</html>
